@@ -1,0 +1,30 @@
+if using this code -> npm install
+
+
+ionic start login blank
+
+ionic serve
+
+home page -> src/app/home/
+Edit the home.html (We use this as the home page)
+
+Generate Other Pages with CLI  (https://ionicframework.com/docs/cli/commands/generate)
+
+
+Registration Page
+------------
+ionic generate page register
+
+in register.page.html we add the back button
+
+Use register.page.ts to write the backend functions
+
+---------
+Install storage module
+https://ionicframework.com/docs/angular/storage
+
+npm install --save @ionic/storage
+
+---------
+Dashboard page
+ionic generate page dashboard  

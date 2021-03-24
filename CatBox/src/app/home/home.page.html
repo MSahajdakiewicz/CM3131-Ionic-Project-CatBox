@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="dark">
+  
+  <!--Menu button-->
+
+  <!--Title-->
+    <ion-title>Welcome to CatBox!</ion-title>
+  
+
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+
+  <div id="container">
+    <ion-img src=".\assets\CatBox-Yellow-01.png" style="height: 30%; width: 30%; margin: auto; padding-bottom: 10px;"></ion-img>
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title color="warning">
+    Existing User?</ion-card-title>
+  </ion-card-header>
+  <ion-card-content>
+    <ion-item lines="none" color="#202020" style="padding-bottom: 15px; padding-top: 10px;">
+      <ion-input type="text" [(ngModel)]="email" placeholder="Email"></ion-input>
+    </ion-item>
+
+    <ion-item lines="none" color="#202020">
+      <ion-input type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
+    </ion-item>
+
+    <ion-text color="danger" *ngIf="error" color="danger">
+     {{errorMsg}}
+    </ion-text>
+    <div style="padding-bottom: 10px; padding-top: 20px;">
+    <ion-button fill="outline" color="warning" (click)="login()" style="width: 120px;" >Login</ion-button>
+    </div>
+  </ion-card-content>
+  </ion-card>
+
+    
+<div style="padding-top: 20px;">
+    <ion-text color="light">or</ion-text>
+  </div>
+
+<div style="padding-bottom: 10px; padding-top: 20px;">
+    <ion-button color="warning" fill="clear" [routerLink]="['/register']"  style="width: 120px;" >Register</ion-button>
+  </div>
+    
+  </div>
+</ion-content>

@@ -1,0 +1,64 @@
+<div class="ion-page" id="main-content">
+  <ion-header>
+    <ion-toolbar color="dark">
+    
+    <!--Menu button-->
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    
+    <!--Title-->
+      <ion-title>Hello {{user.name}}!</ion-title>
+    
+    <!--Back button-->
+      <ion-buttons slot="end">
+        <ion-back-button></ion-back-button>
+      </ion-buttons>
+  
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content>
+  
+  <div class="random-container">
+      <ion-card>
+        <ion-card-header>
+        <ion-item lines="none" color="#202020">
+        <ion-label color="warning">Random Cat Image:</ion-label>
+        <ion-buttons slot="end">
+        <ion-button (click)='loadNextImage()'>
+          <ion-icon name="reload-outline" slot="icon-only" color="light"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+      </ion-card-header>
+      </ion-card>
+  
+      <ion-card>
+        <ion-img [src]=this.randomImage.file></ion-img>
+      </ion-card>
+    </div>
+  
+    <div class="random-container">
+      <ion-card>
+        <ion-card-header>
+        <ion-item lines="none" color="#202020">
+        <ion-label color="warning">Random Cat Fact:</ion-label>
+        <ion-buttons slot="end">
+        <ion-button (click)='loadNextFact()'>
+          <ion-icon name="reload-outline" slot="icon-only" color="light"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </ion-item>
+      </ion-card-header>
+      </ion-card>
+  
+      <ion-card>
+        <ion-card-content>
+          {{this.catFact.fact}} 
+        </ion-card-content>
+      </ion-card>
+    </div>
+  </ion-content>
+  
+  </div>

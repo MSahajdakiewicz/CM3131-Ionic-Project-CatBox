@@ -1,0 +1,185 @@
+<!--MAIN CONTENT--> 
+<div class="ion-page" id="main-content">
+
+  <!--HEADER--> 
+        <ion-header>
+          <ion-toolbar color="dark">
+  
+          <!--Menu button-->  
+            <ion-buttons slot="start">
+              <ion-menu-button></ion-menu-button>
+            </ion-buttons>
+  
+          <!--Title-->
+            <ion-title>Breed Details</ion-title>
+  
+          <!--Back button-->
+            <ion-buttons slot="end">
+              <ion-back-button></ion-back-button>
+            </ion-buttons>
+  
+          </ion-toolbar>
+        </ion-header>
+  
+  <!--ALBUM INFO-->      
+        <ion-content>     
+          <ion-list>
+  
+            <!--Breed photo-->   
+              <ion-item lines="none">
+                  <img src="{{catObject.image.url}}" class="cover"/>
+              </ion-item>
+  
+              <ion-item-group>
+  
+              <!--Breed name-->   
+                <ion-item-divider>
+                  <ion-label color="warning">Breed Name</ion-label>
+                </ion-item-divider>
+      
+                <ion-item lines="none">
+                  <ion-label color="light">{{catObject.name}}</ion-label>
+                </ion-item>
+  
+              <!--Origin-->  
+                <ion-item-divider>
+                  <ion-label color="warning">Origin</ion-label>
+                </ion-item-divider>
+      
+                <ion-item lines="none" >
+                  <ion-label color="light">{{catObject.origin}}</ion-label>
+                </ion-item>
+      
+              <!--Temperament-->  
+                <ion-item-divider>
+                  <ion-label color="warning">Temperament</ion-label>
+                </ion-item-divider>
+      
+                <ion-item lines="none">
+                  <ion-label color="light">{{catObject.temperament}}</ion-label>
+                </ion-item>
+  
+              <!--Lifespan-->  
+                <ion-item-divider>
+                  <ion-label color="warning">Lifespan</ion-label>
+                </ion-item-divider>
+      
+                <ion-item lines="none">
+                  <ion-label color="light">{{catObject.life_span}} years</ion-label>
+                </ion-item>
+
+                <ion-item-divider>
+                  <ion-label color="warning">Weight</ion-label>
+                </ion-item-divider>
+      
+                <ion-item lines="none">
+                  <ion-label color="light">{{catObject.weight.metric}} kg</ion-label>
+                </ion-item>
+
+                <ion-item-divider>
+                  <ion-label color="warning">Description</ion-label>
+                </ion-item-divider>
+      
+                <ion-item lines="none">
+                  <ion-label color="light">{{catObject.description}}</ion-label>
+                </ion-item>
+  
+              <!--Track list-->  
+                <ion-item-divider>
+                  <ion-label color="warning">Stats:</ion-label>
+                </ion-item-divider>
+      
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="settings" color="warning"></ion-icon>
+                    <ion-label>Adaptability</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.adaptability}}" snaps></ion-range>
+                </ion-item>
+  
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="heart-circle" color="warning"></ion-icon>
+                    <ion-label>Affection level</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.affection_level}}" snaps></ion-range>
+                </ion-item>
+  
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="balloon" color="warning"></ion-icon>
+                    <ion-label>Child friendly</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.child_friendly}}" snaps></ion-range>
+                </ion-item>
+  
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="paw" color="warning"></ion-icon>
+                    <ion-label>Dog friendly</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.dog_friendly}}" snaps></ion-range>
+                </ion-item>
+  
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="flash" color="warning"></ion-icon>
+                    <ion-label>Energy level</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.energy_level}}" snaps></ion-range>
+                </ion-item>
+  
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="sparkles" color="warning"></ion-icon>
+                    <ion-label>Grooming</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.grooming}}" snaps></ion-range>
+                </ion-item>
+
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="fitness" color="warning"></ion-icon>
+                    <ion-label>Health issues</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.health_issues}}" snaps></ion-range>
+                </ion-item>
+  
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="school" color="warning"></ion-icon>
+                    <ion-label>Intelligence</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.intelligence}}" snaps></ion-range>
+                </ion-item>
+  
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="people" color="warning"></ion-icon>
+                    <ion-label>Social needs</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.social_needs}}" snaps></ion-range>
+                </ion-item>
+  
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="walk" color="warning"></ion-icon>
+                    <ion-label>Stranger friendly</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.stranger_friendly}}" snaps></ion-range>
+                </ion-item>  
+
+                <ion-item lines="full">
+                  <ion-chip class="stats" outline color="light">
+                    <ion-icon name="megaphone" color="warning"></ion-icon>
+                    <ion-label>Vocalisation</ion-label>
+                  </ion-chip>
+                  <ion-range min="1" max="5" step="1" value="{{catObject.vocalisation}}" snaps></ion-range>
+                </ion-item>  
+  
+              </ion-item-group>  
+  
+          </ion-list>
+        </ion-content>
+  
+      </div>
