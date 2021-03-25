@@ -32,57 +32,14 @@
     --ion-backdrop-color: #92949c;
 }
 
-ion-select{
-    border-radius: 25px !important; 
-    background-color: #333333 !important;
-    color: white !important;
-    --padding-start: 20px !important;
-    --padding-end: 20px !important;
-    width: 100%;
+#search-background{
+    --background: url(.\assets\cat-01.png) no-repeat center center/ 80%;
+    height: 80%;
 }
 
-
-ion-chip.stats {
-    width: 47%;
+.my-toast {
+    text-align: center;
 }
-
-ion-avatar {
-    --border-radius: 25px !important;
-}
-
-ion-range{
-    --bar-background: var(--ion-border-color) !important;
-    --bar-background-active: #ffc409;
-    --bar-height: 5px !important;
-    --bar-border-radius: 25px !important;
-    pointer-events: none;
-    
-}
-
-ion-range::part(tick){
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    background-color: #ffc409;
-}
-
-ion-range::part(tick-active){
-    height: 5px;
-    width: 5px;
-    border-radius: 50%;
-    background-color: #333333;
-}
-
-
-
-ion-tab-button {
-    --color-selected: #ffc409;
-}
-
-h2 {
-    color: #ffc409;  
-}   
-
 
 /*--SEARCHBAR STYLING--*/
 ion-input {
@@ -92,16 +49,6 @@ ion-input {
     --padding-start: 20px !important;
 }
 
-.ion-padding-top {
-    padding-top: 5px;
-}
-
-.output {
-    margin: auto;
-    padding: auto;
-}
-
-
 /*--CARD STYLING--*/
 ion-card {
     width: 80%;
@@ -109,13 +56,6 @@ ion-card {
     margin-top: 10px;
     margin-bottom: 10px;
     background-color: #202020;
-}
-.main_content{
-    --background: url(.\assets\cat-01.png) no-repeat center center/ 80%;
-    height: 80%;
-}
-.random-container {
-    padding-top: 10px;
 }
 
 .collection-card {
@@ -134,7 +74,6 @@ ion-card {
 .favourite-card ion-card-header {
     padding-bottom: 15px;
 }
-
 
 /*--FAVOURITE/DELETE ICONS STYLING--*/
 .favourite-card .btn-heart {
@@ -163,12 +102,6 @@ img {
     width: 100%;
 }
 
-.logo {
-    width: 50%;
-    height: 50%;
-}       
-
-
 /*--DETAILS PAGE STYLING--*/
 .cover {
     width: 90%;
@@ -176,18 +109,4 @@ img {
     margin: auto;
     margin-top: 20px;
     margin-bottom: 20px;
-}
-
-ion-item-divider {
-    margin-top: 10px;
-    background-color: #262626a1;
-}
-
-ion-badge {
-    margin-right: 20px;
-    background-color: #262626a1;
-}
-
-.track-length {
-    margin-left: 20px;
 }

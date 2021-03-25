@@ -1,48 +1,53 @@
 <ion-header>
   <ion-toolbar color="dark">
     <ion-title>Register</ion-title>
-    <ion-buttons slot="start">
+    <ion-buttons slot="end">
       <ion-back-button></ion-back-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
+
   <div id="container">
-<ion-card style="padding-top: 20px;">
-  <ion-card-header>
-    <ion-card-title color="warning">Please enter your details:</ion-card-title>
-  </ion-card-header>
-    <ion-item lines="none" color="#202020" style="padding-bottom: 15px; padding-top: 10px;">
-      <ion-input type="text" [(ngModel)]="user.name" placeholder="Your Name..."></ion-input>
-    </ion-item>
 
-    <ion-item lines="none" color="#202020" style="padding-bottom: 15px;">
-      <ion-input type="email" [(ngModel)]="user.email" placeholder="Your Email..."></ion-input>
-    </ion-item>
+    <ion-card id="card-register">
 
-    <ion-item lines="none" color="#202020" style="padding-bottom: 15px;">
-      <ion-select placeholder="Your Favourite Breed" [(ngModel)]="user.favBreed">
-        <ion-select-option *ngFor="let breed of breedslist" value="{{breed.name}}">{{breed.name}}</ion-select-option>
-      </ion-select>
-    </ion-item>
+      <ion-card-header>
+        <ion-card-title color="warning">Please enter your details:</ion-card-title>
+      </ion-card-header>
 
-    <ion-item lines="none" color="#202020" style="padding-bottom: 15px;">
-      <ion-input type="password" [(ngModel)]="user.password" placeholder="Your Password..." ></ion-input>
-    </ion-item>
+      <ion-item id="item-register-top" lines="none" color="#202020">
+        <ion-input type="text" [(ngModel)]="user.name" placeholder="Your Name..."></ion-input>
+      </ion-item>
 
-    <ion-item color="#202020" lines="full">
-      <ion-label color="light">I agree to privacy policy:</ion-label>
-      <ion-checkbox color="warning" [(ngModel)]="user.policy"></ion-checkbox>
-    </ion-item>
+      <ion-item class="item-register" lines="none" color="#202020">
+        <ion-input type="email" [(ngModel)]="user.email" placeholder="Your Email..."></ion-input>
+      </ion-item>
 
-    <ion-item color="#202020" lines="none">
-      <ion-label color="light">
-      I confirm I am a cat lover:   </ion-label>
-      <ion-checkbox color="warning"></ion-checkbox>
-    </ion-item>
+      <ion-item class="item-register" lines="none" color="#202020">
+        <ion-select placeholder="Your Favourite Breed..." [(ngModel)]="user.favBreed">
+          <ion-select-option *ngFor="let breed of breedslist" value="{{breed.name}}">{{breed.name}}</ion-select-option>
+        </ion-select>
+      </ion-item>
 
-  </ion-card>
+      <ion-item class="item-register" lines="none" color="#202020">
+        <ion-input type="password" [(ngModel)]="user.password" placeholder="Your Password..." ></ion-input>
+      </ion-item>
+
+      <ion-item color="#202020" lines="full">
+        <ion-label color="light">I agree to privacy policy:</ion-label>
+        <ion-checkbox color="warning" [(ngModel)]="user.policy"></ion-checkbox>
+      </ion-item>
+
+      <ion-item color="#202020" lines="none">
+        <ion-label color="light">I confirm I am a cat lover:</ion-label>
+        <ion-checkbox color="warning"></ion-checkbox>
+      </ion-item>
+
+    </ion-card>
+
     <ion-button color="warning" fill="outline" (click)="register()">Register an Account</ion-button>
+
   </div>
 </ion-content>

@@ -1,20 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-collection',
   templateUrl: './collection.page.html',
   styleUrls: ['./collection.page.scss'],
 })
+
 export class CollectionPage implements OnInit {
 
+  buttonIcon: string = "heart";
+
   user = {}
+
   catObject: any = {};
   endpoint = 'https://api.thecatapi.com/v1/breeds';
   breedslist: any = [];
   catImageURL: string = "";
-  constructor(private storage: Storage, private http: HttpClient) { }
+
+  constructor(private storage: Storage, private http: HttpClient, public toastController: ToastController) { }
 
   ngOnInit() {
     this.getAPIDetails();
@@ -34,8 +40,9 @@ export class CollectionPage implements OnInit {
       }
       }
     });
-  
   }
+
+  
   getAPIDetails(){
     this.http.get(this.endpoint).subscribe(
       (response) => {
@@ -45,4 +52,31 @@ export class CollectionPage implements OnInit {
       }
     );
   }
+
+
+  async  toggleIcon(getIcon: string) {
+
+      if (this.buttonIcon === 'heart-outline') {
+        this.buttonIcon = "heart";
+        const toast = await this.toastController.create({
+          message: 'Added to Favourites',
+          duration: 2000,
+          cssClass: 'my-toast',
+        });
+        toast.present();
+      
+      }
+      else if (this.buttonIcon === 'heart') {
+        this.buttonIcon = "heart-outline";
+        const toast = await this.toastController.create({
+          message: 'Removed from Favourites',
+          duration: 2000,
+          cssClass: 'my-toast',
+        });
+        toast.present();
+      }
+   }
+   
+    
+
   }

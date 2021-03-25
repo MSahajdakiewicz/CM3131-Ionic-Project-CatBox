@@ -27,16 +27,16 @@
         <ion-card class="favourite-card">
         <!--Add to favourites button-->  
           <ion-buttons>
-            <ion-button class="btn-heart">
-              <ion-icon name="heart" slot="icon-only" color="danger"></ion-icon>
+            <ion-button  (click)="toggleIcon()">
+              <ion-icon [name]="buttonIcon" slot="icon-only" color="danger"></ion-icon>
             </ion-button> 
           </ion-buttons>
         <!--Cover art-->
-          <a href="details.html"><img src="covers/The-Queen-is-Dead-cover.png"/></a>
+          <img src=""/>
         <!--Card header--> 
           <ion-card-header>
-            <ion-card-subtitle>THE SMITHS</ion-card-subtitle>
-            <ion-card-title color="warning">The Queen Is Dead</ion-card-title>
+            <ion-card-subtitle>Breed</ion-card-subtitle>
+            <ion-card-title color="warning">{{user.favBreed}}</ion-card-title>
           </ion-card-header>
         </ion-card>
 

@@ -11,7 +11,7 @@
           </ion-buttons>
   
         <!--Title-->
-          <ion-title>My Cat Catalogue</ion-title>
+          <ion-title>My Cat-alogue</ion-title>
   
         <!--Back button-->
           <ion-buttons slot="end">
@@ -37,9 +37,9 @@
           </ion-label>
         <!--Add to collection button-->  
           <ion-buttons>
-            <ion-button slot="end">
-              <ion-icon name="heart-outline" slot="icon-only" color="danger"></ion-icon>
-            </ion-button>
+            <ion-button slot="end" (click)="toggleIcon()">
+              <ion-icon slot="icon-only" [name]="buttonIcon" color="danger"></ion-icon>
+          </ion-button>
             <ion-button slot="end">
               <ion-icon name="trash" slot="icon-only" color="medium"></ion-icon>
             </ion-button>

@@ -1,0 +1,32 @@
+ion-chip.stats {
+    width: 47%;
+}
+
+ion-range::part(tick){
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #ffc409;
+}
+
+ion-range{
+    --bar-background: var(--ion-border-color) !important;
+    --bar-background-active: #ffc409;
+    --bar-height: 5px !important;
+    --bar-border-radius: 25px !important;
+    pointer-events: none;
+    
+}
+
+
+ion-range::part(tick-active){
+    height: 5px;
+    width: 5px;
+    border-radius: 50%;
+    background-color: #333333;
+}
+
+ion-item-divider {
+    margin-top: 10px;
+    background-color: #262626a1;
+}

@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-
-// Remeber the Imports
 import { Storage } from '@ionic/storage';
 import { Router } from '@angular/router';
 
@@ -38,7 +36,7 @@ export class HomePage {
 
         }
       } else {
-        this.error = true;//If user details match, reset values in form and go to dashboard
+        this.error = true;
         this.errorMsg = "No account found. Register first!"
       }
 

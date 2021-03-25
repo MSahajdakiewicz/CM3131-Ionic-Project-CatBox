@@ -21,18 +21,18 @@
           </ion-toolbar>
         </ion-header>
   
-  <!--ALBUM INFO-->      
+  <!--CAT INFO-->      
         <ion-content>     
           <ion-list>
   
-            <!--Breed photo-->   
+        <!--Breed photo-->   
               <ion-item lines="none">
                   <img src="{{catObject.image.url}}" class="cover"/>
               </ion-item>
   
               <ion-item-group>
   
-              <!--Breed name-->   
+          <!--Breed name-->   
                 <ion-item-divider>
                   <ion-label color="warning">Breed Name</ion-label>
                 </ion-item-divider>
@@ -41,7 +41,7 @@
                   <ion-label color="light">{{catObject.name}}</ion-label>
                 </ion-item>
   
-              <!--Origin-->  
+          <!--Origin-->  
                 <ion-item-divider>
                   <ion-label color="warning">Origin</ion-label>
                 </ion-item-divider>
@@ -50,7 +50,7 @@
                   <ion-label color="light">{{catObject.origin}}</ion-label>
                 </ion-item>
       
-              <!--Temperament-->  
+          <!--Temperament-->  
                 <ion-item-divider>
                   <ion-label color="warning">Temperament</ion-label>
                 </ion-item-divider>
@@ -59,7 +59,7 @@
                   <ion-label color="light">{{catObject.temperament}}</ion-label>
                 </ion-item>
   
-              <!--Lifespan-->  
+          <!--Lifespan-->  
                 <ion-item-divider>
                   <ion-label color="warning">Lifespan</ion-label>
                 </ion-item-divider>
@@ -68,6 +68,7 @@
                   <ion-label color="light">{{catObject.life_span}} years</ion-label>
                 </ion-item>
 
+          <!--Weight-->                  
                 <ion-item-divider>
                   <ion-label color="warning">Weight</ion-label>
                 </ion-item-divider>
@@ -76,6 +77,7 @@
                   <ion-label color="light">{{catObject.weight.metric}} kg</ion-label>
                 </ion-item>
 
+          <!--Description-->                  
                 <ion-item-divider>
                   <ion-label color="warning">Description</ion-label>
                 </ion-item-divider>
@@ -84,11 +86,12 @@
                   <ion-label color="light">{{catObject.description}}</ion-label>
                 </ion-item>
   
-              <!--Track list-->  
+          <!--Statistics-->  
                 <ion-item-divider>
                   <ion-label color="warning">Stats:</ion-label>
                 </ion-item-divider>
       
+            <!--Adapdability-->  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="settings" color="warning"></ion-icon>
@@ -97,6 +100,7 @@
                   <ion-range min="1" max="5" step="1" value="{{catObject.adaptability}}" snaps></ion-range>
                 </ion-item>
   
+          <!--Affection level-->                  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="heart-circle" color="warning"></ion-icon>
@@ -105,6 +109,7 @@
                   <ion-range min="1" max="5" step="1" value="{{catObject.affection_level}}" snaps></ion-range>
                 </ion-item>
   
+          <!--Child friendly-->                  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="balloon" color="warning"></ion-icon>
@@ -113,6 +118,7 @@
                   <ion-range min="1" max="5" step="1" value="{{catObject.child_friendly}}" snaps></ion-range>
                 </ion-item>
   
+          <!--Dog friendly-->                  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="paw" color="warning"></ion-icon>
@@ -121,6 +127,7 @@
                   <ion-range min="1" max="5" step="1" value="{{catObject.dog_friendly}}" snaps></ion-range>
                 </ion-item>
   
+           <!--Energy level-->                 
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="flash" color="warning"></ion-icon>
@@ -129,6 +136,7 @@
                   <ion-range min="1" max="5" step="1" value="{{catObject.energy_level}}" snaps></ion-range>
                 </ion-item>
   
+          <!--Grooming-->                  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="sparkles" color="warning"></ion-icon>
@@ -137,6 +145,7 @@
                   <ion-range min="1" max="5" step="1" value="{{catObject.grooming}}" snaps></ion-range>
                 </ion-item>
 
+          <!--Health issues-->                  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="fitness" color="warning"></ion-icon>
@@ -144,7 +153,8 @@
                   </ion-chip>
                   <ion-range min="1" max="5" step="1" value="{{catObject.health_issues}}" snaps></ion-range>
                 </ion-item>
-  
+
+          <!--Intelligence-->                  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="school" color="warning"></ion-icon>
@@ -152,7 +162,8 @@
                   </ion-chip>
                   <ion-range min="1" max="5" step="1" value="{{catObject.intelligence}}" snaps></ion-range>
                 </ion-item>
-  
+
+          <!--Social needs-->                  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="people" color="warning"></ion-icon>
@@ -160,7 +171,8 @@
                   </ion-chip>
                   <ion-range min="1" max="5" step="1" value="{{catObject.social_needs}}" snaps></ion-range>
                 </ion-item>
-  
+
+          <!--Stranger friendly-->                  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="walk" color="warning"></ion-icon>
@@ -169,6 +181,7 @@
                   <ion-range min="1" max="5" step="1" value="{{catObject.stranger_friendly}}" snaps></ion-range>
                 </ion-item>  
 
+          <!--Vocalisation-->                  
                 <ion-item lines="full">
                   <ion-chip class="stats" outline color="light">
                     <ion-icon name="megaphone" color="warning"></ion-icon>

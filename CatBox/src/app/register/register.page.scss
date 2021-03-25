@@ -8,3 +8,25 @@
     transform: translateY(-50%);
   }
   
+#card-register {
+  padding-top: 20px;
+}
+
+#item-register-top {
+  padding-bottom: 15px; 
+  padding-top: 10px;
+}
+
+.item-register {
+  padding-bottom: 15px;
+}
+
+ion-select{
+  border-radius: 25px !important; 
+  background-color: #333333 !important;
+  color: white !important;
+  --padding-start: 20px !important;
+  --padding-end: 20px !important;
+  width: 100%;
+}
+

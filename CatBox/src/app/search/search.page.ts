@@ -3,7 +3,6 @@ import { HttpClient } from '@angular/common/http';
 import { NavigationExtras, Router } from '@angular/router';
 
 
-
 @Component({
   selector: 'app-search',
   templateUrl: './search.page.html',
@@ -22,6 +21,7 @@ export class SearchPage {
   country_flag_url: string = ``;
 
   selectedCat?: any = {};
+
   //--------------------------------------------------------
 
   constructor(private http: HttpClient, private router: Router) {}
@@ -64,4 +64,4 @@ export class SearchPage {
     this.router.navigate(['/cat-details'], navigationExtras)
   }
 
-} //End of class
+}
