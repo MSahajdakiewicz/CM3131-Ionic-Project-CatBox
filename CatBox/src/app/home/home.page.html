@@ -1,51 +1,60 @@
-<ion-header>
-  <ion-toolbar color="dark">
-  <!--Title-->
-    <ion-title>Welcome to CatBox!</ion-title>
-  </ion-toolbar>
-</ion-header>
+<!--HEADER-->  
+  <ion-header>
+    <ion-toolbar color="dark">
 
+    <!--Title-->
+      <ion-title>Welcome to CatBox!</ion-title>
 
-<ion-content [fullscreen]="true">
+    </ion-toolbar>
+  </ion-header>
 
-  <div id="container">
+<!--MAIN CONTENT--> 
+  <ion-content [fullscreen]="true">
+    <div id="container">
 
-    <ion-img id="logo-login" src=".\assets\CatBox-Yellow-01.png"></ion-img>
+    <!--App logo-->  
+      <ion-img id="logo-login" src=".\assets\CatBox-Yellow-01.png"></ion-img>
 
-    <ion-card>
+    <!--Login card-->
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title color="warning">Existing User?</ion-card-title>
+        </ion-card-header> 
 
-      <ion-card-header>
-        <ion-card-title color="warning">Existing User?</ion-card-title>
-      </ion-card-header>
+        <ion-card-content>
 
-      <ion-card-content>
-        <ion-item id="item-login" lines="none" color="#202020">
-          <ion-input type="text" [(ngModel)]="email" placeholder="Email"></ion-input>
-        </ion-item>
+        <!--Email input-->  
+          <ion-item id="item-login" color="#202020" lines="none" >
+            <ion-input type="text" [(ngModel)]="email" placeholder="Email"></ion-input>
+          </ion-item>
 
-        <ion-item lines="none" color="#202020">
-          <ion-input type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
-        </ion-item>
+        <!--Password input-->  
+          <ion-item color="#202020" lines="none">
+            <ion-input type="password" [(ngModel)]="password" placeholder="Password"></ion-input>
+          </ion-item>
 
-        <ion-text color="danger" *ngIf="error" color="danger">
-         {{errorMsg}}
-        </ion-text>
+        <!--Error message-->  
+          <ion-text *ngIf="error" color="danger">
+            {{errorMsg}}
+          </ion-text>
 
-        <div class="btn-login">
-          <ion-button fill="outline" color="warning" (click)="login()">Login</ion-button>
-        </div>
+        <!--Login button--> 
+          <div class="btn-login">
+            <ion-button fill="outline" color="warning" (click)="login()">Login</ion-button>
+          </div>
 
-      </ion-card-content>
-    </ion-card>
+        </ion-card-content>
+      </ion-card>
 
+    <!--Devider section--> 
+      <div id="or-div-login">
+        <ion-text color="light">or</ion-text>
+      </div>
+
+    <!--Register button--> 
+      <div class="btn-login">
+        <ion-button fill="clear" color="warning" [routerLink]="['/register']">Register</ion-button>
+      </div>
     
-    <div id="or-div-login">
-      <ion-text color="light">or</ion-text>
     </div>
-
-    <div class="btn-login">
-      <ion-button color="warning" fill="clear" [routerLink]="['/register']">Register</ion-button>
-    </div>
-    
-  </div>
 </ion-content>

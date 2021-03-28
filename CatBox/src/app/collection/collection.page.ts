@@ -9,27 +9,35 @@ import { ToastController } from '@ionic/angular';
   styleUrls: ['./collection.page.scss'],
 })
 
+  //--------------------------------------------------------
+ 
 export class CollectionPage implements OnInit {
+
+  user = {}
+  
+  breedslist: any = [];
+  catObject: any = {};
+  endpoint = 'https://api.thecatapi.com/v1/breeds';
+  catImageURL: string = "";
 
   buttonIcon: string = "heart";
 
-  user = {}
-
-  catObject: any = {};
-  endpoint = 'https://api.thecatapi.com/v1/breeds';
-  breedslist: any = [];
-  catImageURL: string = "";
+  //--------------------------------------------------------
 
   constructor(private storage: Storage, private http: HttpClient, public toastController: ToastController) { }
+
+  //--------------------------------------------------------
 
   ngOnInit() {
     this.getAPIDetails();
 
+  //---Get user details  
     this.storage.get('user').then((obj) => {
       console.log(obj);
       this.user = obj
     });
 
+  //---Attempt to create catObject by comparing user.favBreed with breed name from API object
     this.storage.get('user').then((user) => {
       if (user) {
         for (let aCatObject of this.breedslist){
@@ -39,11 +47,14 @@ export class CollectionPage implements OnInit {
         this.catImageURL = this.catObject.image.url;
       }
       }
+      console.log(this.catObject);
     });
   }
 
+  //--------------------------------------------------------
   
-  getAPIDetails(){
+  //---Get array of cat breeds from API
+  getAPIDetails() {
     this.http.get(this.endpoint).subscribe(
       (response) => {
         console.log(this);
@@ -53,8 +64,10 @@ export class CollectionPage implements OnInit {
     );
   }
 
+  //--------------------------------------------------------
 
-  async  toggleIcon(getIcon: string) {
+  //---Toggle favourite icon 
+  async toggleIcon(getIcon: string) {
 
       if (this.buttonIcon === 'heart-outline') {
         this.buttonIcon = "heart";
@@ -64,8 +77,8 @@ export class CollectionPage implements OnInit {
           cssClass: 'my-toast',
         });
         toast.present();
-      
       }
+
       else if (this.buttonIcon === 'heart') {
         this.buttonIcon = "heart-outline";
         const toast = await this.toastController.create({
@@ -77,6 +90,4 @@ export class CollectionPage implements OnInit {
       }
    }
    
-    
-
   }

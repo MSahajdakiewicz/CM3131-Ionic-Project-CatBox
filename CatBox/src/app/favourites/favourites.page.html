@@ -1,46 +1,42 @@
 <!--MAIN CONTENT--> 
 <div class="ion-page" id="main-content">
 
-  <!--HEADER--> 
-        <ion-header>
-          <ion-toolbar color="dark">
+<!--HEADER--> 
+  <ion-header>
+    <ion-toolbar color="dark">
   
-          <!--Menu button-->  
-            <ion-buttons slot="start">
-              <ion-menu-button></ion-menu-button>
-            </ion-buttons>
+    <!--Menu button-->  
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
   
-          <!--Title-->
-            <ion-title>Favourites</ion-title>
+    <!--Title-->
+      <ion-title>Favourites</ion-title>
   
-          <!--Back button-->
-            <ion-buttons slot="end">
-              <ion-back-button></ion-back-button>
-            </ion-buttons>
+    </ion-toolbar> 
+  </ion-header>
   
-          </ion-toolbar>
-        </ion-header>
-  
-  <!--FAVOURITES-->      
-        <ion-content>
-  
-        <ion-card class="favourite-card">
-        <!--Add to favourites button-->  
-          <ion-buttons>
-            <ion-button  (click)="toggleIcon()">
-              <ion-icon [name]="buttonIcon" slot="icon-only" color="danger"></ion-icon>
-            </ion-button> 
-          </ion-buttons>
-        <!--Cover art-->
-          <img src=""/>
-        <!--Card header--> 
-          <ion-card-header>
-            <ion-card-subtitle>Breed</ion-card-subtitle>
-            <ion-card-title color="warning">{{user.favBreed}}</ion-card-title>
-          </ion-card-header>
-        </ion-card>
+<!--FAVOURITES-->      
+  <ion-content>
+    <ion-card class="favourite-card">
 
+    <!--Favourites button-->  
+      <ion-buttons>
+        <ion-button  (click)="toggleIcon()">
+          <ion-icon [name]="buttonIcon" slot="icon-only" color="danger"></ion-icon>
+        </ion-button> 
+      </ion-buttons>
+
+    <!--Cat Image-->
+      <img src=""/>
+
+    <!--Card header--> 
+      <ion-card-header>
+        <ion-card-subtitle>Breed:</ion-card-subtitle>
+        <ion-card-title color="warning">{{user.favBreed}}</ion-card-title>
+      </ion-card-header>
+    
+    </ion-card>
+  </ion-content>
   
-        </ion-content>
-  
-      </div>
+</div>

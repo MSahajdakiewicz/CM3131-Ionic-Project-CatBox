@@ -1,53 +1,52 @@
 <!--MAIN CONTENT--> 
 <div class="ion-page" id="main-content">
 
-  <!--HEADER-->         
-      <ion-header>
-        <ion-toolbar color="dark">
+<!--HEADER-->          
+  <ion-header>
+    <ion-toolbar color="dark">
           
-        <!--Menu button-->  
-          <ion-buttons slot="start">
-            <ion-menu-button></ion-menu-button>
-          </ion-buttons>
+    <!--Menu button-->  
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
   
-        <!--Title-->
-          <ion-title>My Cat-alogue</ion-title>
-  
-        <!--Back button-->
-          <ion-buttons slot="end">
-            <ion-back-button></ion-back-button>
-          </ion-buttons>
-  
-        </ion-toolbar>
-      </ion-header>
+    <!--Title-->
+      <ion-title>My Cat-alogue</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
     
-    <ion-content>
-  <!--LIST-->        
-      <ion-list>
+<!--LIST OF SAVED CATS-->    
+  <ion-content>
+    <ion-list>
   
-        <ion-item>
-        <!--Thumbnail cover art-->    
-          <ion-thumbnail slot="start">
-            <img [src]=catImageURL>
-          </ion-thumbnail>
-        <!--Label-->
-          <ion-label class="ion-text-wrap">
-            <p>Breed:</p>
-            <h2>{{user.favBreed}}</h2>
-          </ion-label>
-        <!--Add to collection button-->  
-          <ion-buttons>
-            <ion-button slot="end" (click)="toggleIcon()">
-              <ion-icon slot="icon-only" [name]="buttonIcon" color="danger"></ion-icon>
+    <!--Thumbnail of cat photo-->
+      <ion-item> 
+        <ion-thumbnail slot="start">
+          <img [src]=catImageURL>
+        </ion-thumbnail>
+
+    <!--Breed name-->
+        <ion-label class="ion-text-wrap">
+          <p>Breed:</p>
+          <h2>{{user.favBreed}}</h2>
+        </ion-label>
+
+    <!--Favourites button-->  
+        <ion-buttons>
+          <ion-button slot="end" (click)="toggleIcon()">
+            <ion-icon slot="icon-only" [name]="buttonIcon" color="danger"></ion-icon>
           </ion-button>
-            <ion-button slot="end">
-              <ion-icon name="trash" slot="icon-only" color="medium"></ion-icon>
-            </ion-button>
-          </ion-buttons>
-        </ion-item>
+
+    <!--Remove button-->            
+          <ion-button slot="end">
+            <ion-icon name="trash" slot="icon-only" color="medium"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-item>
   
-      </ion-list>
-    </ion-content>
+    </ion-list>
+  </ion-content>
   
-    </div>
+</div>
   

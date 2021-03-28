@@ -1,0 +1,51 @@
+<!--MAIN CONTENT--> 
+<div class="ion-page" id="main-content">
+
+<!--HEADER-->         
+  <ion-header>
+    <ion-toolbar color="dark">
+    
+    <!--Menu button-->  
+      <ion-buttons slot="start">
+        <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+
+    <!--Title-->
+      <ion-title>Task List</ion-title>
+
+    </ion-toolbar>
+  </ion-header>
+
+<!--TASK LIST--> 
+  <ion-content>
+        
+  <!--Add task button--> 
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+      <ion-fab-button color="warning" (click)="addNewTask()">
+        <ion-icon name="add"></ion-icon>
+      </ion-fab-button>
+    </ion-fab>
+
+  <!--Task list--> 
+    <ion-list>
+      <ion-item-sliding text-wrap *ngFor="let task of tasks; let i = index">
+
+      <!--Delete button--> 
+        <ion-item-options side="end">
+          <ion-item-option color="danger" (click)="delete(i)">Delete</ion-item-option>
+        </ion-item-options>
+  
+      <!--Task--> 
+        <ion-item>
+          <ion-label text-wrap color="light">
+            <h2>{{task.title}}</h2>
+            <h3>{{task.datetime | date: 'EEEE, MMMM d, y H:mm'}}</h3>
+          </ion-label>
+          <ion-checkbox color="warning" slot="start" checked="{{task.isCompleted}}" (ionChange)="mark(task)"></ion-checkbox>
+        </ion-item>
+  
+      </ion-item-sliding> 
+    </ion-list>
+
+  </ion-content>
+</div>

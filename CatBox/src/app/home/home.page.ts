@@ -7,14 +7,21 @@ import { Router } from '@angular/router';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
+
+  //--------------------------------------------------------
+
 export class HomePage {
 
   email = ""
   password = ""
   error = false
   errorMsg = ""
+ 
+  //--------------------------------------------------------
 
   constructor(private storage: Storage, private router: Router) { }
+
+  //--------------------------------------------------------
 
   login() {
 
@@ -27,20 +34,20 @@ export class HomePage {
           this.error = false;
           this.router.navigate(['/dashboard'])
         }
+
         else {
           this.email = ""
           this.password = ""
 
           this.error = true;
           this.errorMsg = "Invalid email or password"
-
         }
-      } else {
+      } 
+      
+      else {
         this.error = true;
         this.errorMsg = "No account found. Register first!"
       }
-
-
     });
   }
 

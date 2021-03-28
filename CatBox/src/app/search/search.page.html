@@ -1,5 +1,7 @@
+<!--MAIN CONTENT--> 
 <div class="ion-page" id="main-content">
 
+<!--HEADER-->  
   <ion-header>
     <ion-toolbar color="dark">
     
@@ -10,18 +12,12 @@
     
     <!--Title-->
       <ion-title>Search for Breed</ion-title>
-    
-    <!--Back button-->
-      <ion-buttons slot="end">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
   
     </ion-toolbar>
   </ion-header>
   
-
+<!--SEARCHBAR--> 
   <ion-content>
-    
     <ion-item lines="none" class="ion-padding-top">
       <ion-input type="text" [(ngModel)]="nameInput" placeholder="Bengal, Ragdoll, etc..."></ion-input>
       <ion-buttons>
@@ -31,27 +27,30 @@
       </ion-buttons>
     </ion-item>
   
-  
+<!--SEARCH OUTPUT--> 
     <ion-content id="search-background">
       <div *ngIf="isShown" id="search-output">
-        <ion-card >
-          <!--Cat photo-->
-            <img [src]=catImageURL (click)='onSelect(catObject)'/>
+        <ion-card style="margin-top: 20px;">
 
-          <!--Card header-->  
+        <!--Cat photo-->
+          <img [src]=catImageURL (click)='onSelect(catObject)'/>
+
+        <!--Card header-->  
           <ion-card-header>
             <ion-card-subtitle>Breed:</ion-card-subtitle>
             <ion-card-title color="warning">{{catObject.name}}</ion-card-title>
           </ion-card-header>
 
+        <!--Origin chip-->
           <div id="search-output-chips">
             <ion-chip color="light">
               <ion-avatar>
-                <img class="avatar-img" [src]=country_flag_url/>
+                <img class="avatar-img" [src]=countryFlagUrl/>
               </ion-avatar>
               <ion-label>{{catObject.country_code}}</ion-label>
             </ion-chip>
 
+        <!--Info chips-->
             <ion-chip color="light" *ngIf="catObject.experimental===1">Experimental</ion-chip>
             <ion-chip color="light" *ngIf="catObject.rex===1">Rex</ion-chip>
             <ion-chip color="light" *ngIf="catObject.natural===1">Natural</ion-chip>
@@ -62,32 +61,34 @@
             <ion-chip color="light" *ngIf="catObject.hypoallergenic===1">Hypoallergenic</ion-chip>
           </div>
 
-      <!--Buttons-->  
+        <!--Buttons-->  
           <ion-card-content id="btn-container">
-
             <ion-buttons>
+
           <!--Add to collection button-->
-              <ion-button>
+              <ion-button (click)="addToCollection(this.catObject)">
                 <ion-icon name="add-circle" slot="icon-only" color="light"></ion-icon>
               </ion-button>
-          <!--Add to wish list button-->
+
+          <!--See details button-->
               <ion-button (click)='onSelect(catObject)'>
                 <ion-icon name="information-circle-outline" slot="icon-only" color="light"></ion-icon>
               </ion-button>
+
             </ion-buttons>
-  
           </ion-card-content>
+
         </ion-card>
       </div>
 
+    <!--Error message-->
       <div>
         <ion-card *ngIf="error">
-          <ion-card-header color="danger">
-            {{errorMsg}}
-          </ion-card-header >
+          <ion-card-header color="danger">{{errorMsg}}</ion-card-header >
         </ion-card>
       </div>
-      </ion-content>
+      
+    </ion-content>
   
   </ion-content>
 </div>

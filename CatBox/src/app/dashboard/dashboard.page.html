@@ -1,5 +1,7 @@
+<!--MAIN CONTENT--> 
 <div class="ion-page" id="main-content">
 
+<!--HEADER-->  
   <ion-header>
     <ion-toolbar color="dark">
     
@@ -10,21 +12,20 @@
     
     <!--Title-->
       <ion-title>Hello {{user.name}}!</ion-title>
-    
-    <!--Back button-->
-      <ion-buttons slot="end">
-        <ion-back-button></ion-back-button>
-      </ion-buttons>
   
     </ion-toolbar>
   </ion-header>
   
+ <!--DASHBOARD CONTENT-->  
   <ion-content>
+
+  <!--RANDOM IMAGE CONTAINER-->
     <div class="random-container">
 
+    <!--Random Image Label--> 
       <ion-card>
         <ion-card-header>
-          <ion-item lines="none" color="#202020">
+          <ion-item color="#202020" lines="none">
             <ion-label color="warning">Random Cat Image:</ion-label>
             <ion-buttons slot="end">
               <ion-button (click)='loadNextImage()'>
@@ -34,18 +35,21 @@
           </ion-item>
         </ion-card-header>
       </ion-card>
-  
-      <ion-card>
+
+    <!--Random Image--> 
+      <ion-card *ngIf="randomImage">
         <ion-img [src]=randomImage.file></ion-img>
       </ion-card>
-
+  
     </div>
   
+  <!--RANDOM FACT CONTAINER-->
     <div class="random-container">
 
+    <!--Random Fact Label--> 
       <ion-card>
         <ion-card-header>
-          <ion-item lines="none" color="#202020">
+          <ion-item color="#202020" lines="none">
             <ion-label color="warning">Random Cat Fact:</ion-label>
             <ion-buttons slot="end">
               <ion-button (click)='loadNextFact()'>
@@ -56,14 +60,14 @@
         </ion-card-header>
       </ion-card>
   
-      <ion-card>
+    <!--Random Fact--> 
+      <ion-card *ngIf="catFact">
         <ion-card-content>
           {{catFact.fact}} 
         </ion-card-content>
       </ion-card>
 
     </div>
-
   </ion-content>
 
 </div>
