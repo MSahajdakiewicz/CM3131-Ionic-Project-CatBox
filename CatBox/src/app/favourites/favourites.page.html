@@ -18,25 +18,57 @@
   
 <!--FAVOURITES-->      
   <ion-content>
-    <ion-card class="favourite-card">
+    <ion-list *ngIf="catObject">
+    <ion-card *ngFor="let catObject of savedCats" style="margin-top: 20px;">
+      
+    <!--Cat photo-->
+      <img src="{{catObject.image.url}}" (click)='onSelect(catObject)'/>
 
-    <!--Favourites button-->  
-      <ion-buttons>
-        <ion-button  (click)="toggleIcon()">
-          <ion-icon [name]="buttonIcon" slot="icon-only" color="danger"></ion-icon>
-        </ion-button> 
-      </ion-buttons>
-
-    <!--Cat Image-->
-      <img src=""/>
-
-    <!--Card header--> 
+    <!--Card header-->  
       <ion-card-header>
         <ion-card-subtitle>Breed:</ion-card-subtitle>
-        <ion-card-title color="warning">{{user.favBreed}}</ion-card-title>
+        <ion-card-title color="warning">{{catObject.name}}</ion-card-title>
       </ion-card-header>
-    
+
+    <!--Origin chip-->
+      <div id="search-output-chips">
+        <ion-chip color="light">
+          <ion-avatar>
+            <img class="avatar-img" src="https://www.countryflags.io/{{this.catObject.country_code}}/flat/64.png"/>
+          </ion-avatar>
+          <ion-label>{{catObject.country_code}}</ion-label>
+        </ion-chip>
+
+    <!--Info chips-->
+        <ion-chip color="light" *ngIf="catObject.experimental===1">Experimental</ion-chip>
+        <ion-chip color="light" *ngIf="catObject.rex===1">Rex</ion-chip>
+        <ion-chip color="light" *ngIf="catObject.natural===1">Natural</ion-chip>
+        <ion-chip color="light" *ngIf="catObject.rare===1">Rare</ion-chip>
+        <ion-chip color="light" *ngIf="catObject.hairless===1">Hairless</ion-chip>
+        <ion-chip color="light" *ngIf="catObject.suppressed_tail===1">Suppressed Tail</ion-chip>
+        <ion-chip color="light" *ngIf="catObject.short_legs===1">Short Legs</ion-chip>
+        <ion-chip color="light" *ngIf="catObject.hypoallergenic===1">Hypoallergenic</ion-chip>
+      </div>
+
+    <!--Buttons-->  
+      <ion-card-content id="btn-container">
+        <ion-buttons>
+
+      <!--Delete button-->
+          <ion-button (click)="delete(i)" (click)="removedAlert()">
+            <ion-icon name="paw" slot="icon-only" color="danger"></ion-icon>
+          </ion-button>
+
+      <!--See details button-->
+          <ion-button (click)='onSelect(catObject)'>
+            <ion-icon name="information-circle-outline" slot="icon-only" color="light"></ion-icon>
+          </ion-button>
+
+        </ion-buttons>
+      </ion-card-content>
+
     </ion-card>
+    </ion-list>
   </ion-content>
   
 </div>

@@ -26,7 +26,7 @@ export class HomePage {
   login() {
 
     this.storage.get('user').then((user) => {
-      console.log(user);
+      //---console.log(user);
       if (user) {
         if (user.email == this.email && user.password == this.password) {
           this.email = ""

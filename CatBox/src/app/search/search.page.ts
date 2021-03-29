@@ -2,6 +2,7 @@ import { Component} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NavigationExtras, Router } from '@angular/router';
 import { Storage } from '@ionic/storage';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-search',
@@ -13,6 +14,8 @@ import { Storage } from '@ionic/storage';
 
 export class SearchPage {
 
+  user = {}
+
   endpoint = 'https://api.thecatapi.com/v1/breeds';
   nameInput: string = "";
   breedslist: any = [];
@@ -21,19 +24,28 @@ export class SearchPage {
   countryFlagUrl: string = ``;
 
   isShown: boolean = false;
+  error: boolean = false;
+  errorMsg = "";
 
   selectedCat?: any = {};
 
-  catCollection: any[] = [];
+  catCollection: any = [];
 
+  buttonIcon: string = "paw-outline";
+ 
   //--------------------------------------------------------
 
-  constructor(private storage: Storage, private http: HttpClient, private router: Router) { }
+  constructor(private storage: Storage, private http: HttpClient, private router: Router, public toastController: ToastController) { }
 
   //--------------------------------------------------------
 
   ngOnInit() {
     this.selectedCat = {};
+    this.storage.get('user').then((obj) => {
+      //---console.log(obj);
+      this.user = obj
+    });
+
   }
 
   //--------------------------------------------------------
@@ -41,20 +53,25 @@ export class SearchPage {
   //---Get searched cat breed info based on user input
   getCatDetails() {
     this.http.get(this.endpoint).subscribe((response) => {
-      this.isShown = ! this.isShown;
-
+      
       this.breedslist = response;
-      console.log(this.breedslist);
+      //---console.log(this.breedslist);
 
       for (let aCatObject of this.breedslist){
         if (aCatObject.name === this.nameInput){
           this.catObject = aCatObject;
+          this.isShown = ! this.isShown;
+        }
+        else {
+          this.error = ! this.error;
+          this.errorMsg = "No kitty found!";
         }
       }
       this.catImageURL = this.catObject.image.url;
       this.countryFlagUrl = `https://www.countryflags.io/${this.catObject.country_code}/flat/64.png`
       this.nameInput = "";
-      console.log(this.catObject);
+      this.buttonIcon = "paw-outline";
+      //---console.log(this.catObject);
     });
 
   }
@@ -70,17 +87,34 @@ export class SearchPage {
         catObject: JSON.stringify(this.selectedCat)
       }
     };
-    console.log(navigationExtras);
+    //---console.log(navigationExtras);
     this.router.navigate(['/cat-details'], navigationExtras);
   }
 
   //--------------------------------------------------------
 
-  //---Attempt to save catObject in array to use on collection/favourites pages
+  //---Save catObject in array to use on collection/favourites page
   addToCollection(catObject) {
     this.catCollection.push(catObject);
-    localStorage.setItem("storedCats", JSON.stringify(this.catCollection));
-    console.log(this.catCollection);    
+    let savedCats = JSON.stringify(this.catCollection);
+    this.storage.set('savedCats', savedCats);
+    //---console.log(this.catCollection)
   }
+
+  //--------------------------------------------------------
+
+  //---Added to Cat-alogue toast alert
+  async addedAlert(getIcon: string) {
+    if (this.buttonIcon === 'paw-outline') {
+      this.buttonIcon = "paw";
+      const toast = await this.toastController.create({
+        message: 'Added to Cat-alogue',
+        duration: 2000,
+        cssClass: 'my-toast',
+      });
+      toast.present();
+    }
+
+ }
 
 }

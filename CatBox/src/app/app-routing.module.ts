@@ -28,10 +28,6 @@ const routes: Routes = [
     loadChildren: () => import('./cat-details/cat-details.module').then( m => m.CatDetailsPageModule)
   },
   {
-    path: 'collection',
-    loadChildren: () => import('./collection/collection.module').then( m => m.CollectionPageModule)
-  },
-  {
     path: 'favourites',
     loadChildren: () => import('./favourites/favourites.module').then( m => m.FavouritesPageModule)
   },

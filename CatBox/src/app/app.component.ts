@@ -24,7 +24,7 @@ export class AppComponent implements OnInit {
 
   //---Get user details
     this.storage.get('user').then((obj) => {
-      console.log(obj);
+      //---console.log(obj);
       this.user = obj
     });
   }

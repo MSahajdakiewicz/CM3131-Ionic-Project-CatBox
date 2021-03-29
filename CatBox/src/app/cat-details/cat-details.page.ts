@@ -19,7 +19,7 @@ export class CatDetailsPage implements OnInit {
 
   //---Get selected cat details  
   this.route.queryParams.subscribe(params => {
-      console.log('params: ', params);
+      //---console.log('params: ', params);
 
       if (params && params.catObject) {
         this.catObjectDetails = JSON.parse(params.catObject);

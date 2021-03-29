@@ -34,9 +34,9 @@ export class RegisterPage implements OnInit {
   getAPIDetails() {
     this.http.get(this.endpoint).subscribe(
       (response) => {
-        console.log(this);
+        //---console.log(this);
         this.breedslist = response;
-        console.log(this.breedslist);
+        //---console.log(this.breedslist);
       }
     );
   }
@@ -45,7 +45,7 @@ export class RegisterPage implements OnInit {
 
   //---Register user
   register() {
-    console.log(this.user);
+    //---console.log(this.user);
     this.storage.set('user', this.user).then((obj) => {
       this.router.navigate(['/dashboard'])
     });

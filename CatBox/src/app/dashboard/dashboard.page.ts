@@ -28,7 +28,7 @@ export class DashboardPage implements OnInit {
 
   //---Get user details
     this.storage.get('user').then((obj) => {
-      console.log(obj);
+      //---console.log(obj);
       this.user = obj
     });
 
@@ -45,7 +45,7 @@ export class DashboardPage implements OnInit {
   //---Get random image from API
   loadNextImage() {
     this.http.get('http://aws.random.cat/meow').subscribe((response) => {
-      console.log(response);
+      //---console.log(response);
       this.randomImage = response;
     });
   }
@@ -55,7 +55,7 @@ export class DashboardPage implements OnInit {
   //---Get random fact from API
   loadNextFact() {
     this.http.get('https://catfact.ninja/fact?max_length=1400').subscribe((response) => {
-      console.log(response);
+      //---console.log(response);
       this.catFact = response;
     });
   }

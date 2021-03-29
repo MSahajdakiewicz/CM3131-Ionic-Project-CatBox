@@ -81,7 +81,7 @@ export class TasksPage implements OnInit {
 
   //---Delete task
   delete(index) {
-    console.log(index);
+    //---console.log(index);
     this.tasks.splice(index,1);
     this.storage.set("tasks", this.tasks);
   }
@@ -92,7 +92,7 @@ export class TasksPage implements OnInit {
   mark(task) {
     task.isCompleted = !task.isCompleted;
     this.storage.set("tasks", this.tasks);
-    console.log(task);
+    //---console.log(task);
   }
 
 }

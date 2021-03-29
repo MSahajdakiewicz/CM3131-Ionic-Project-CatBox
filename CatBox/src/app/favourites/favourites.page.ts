@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Storage } from '@ionic/storage';
 import { HttpClient } from '@angular/common/http';
 import { ToastController } from '@ionic/angular';
+import { NavigationExtras, Router } from '@angular/router';
 
 @Component({
   selector: 'app-favourites',
@@ -16,38 +17,37 @@ export class FavouritesPage implements OnInit {
   user = {}
 
   breedslist: any = [];
+
   catObject: any = {};
   endpoint = 'https://api.thecatapi.com/v1/breeds';
   catImageURL: string = "";
 
-  buttonIcon: string = "heart";
+  buttonIcon: string = "paw";
 
+  savedCats: any = [];
+
+  selectedCat?: any = {};
   //--------------------------------------------------------
 
-  constructor(private storage: Storage, private http: HttpClient, public toastController: ToastController) { }
+  constructor(private storage: Storage, private http: HttpClient, public toastController: ToastController,  private router: Router) { }
 
   //--------------------------------------------------------
 
   ngOnInit() {
     this.getAPIDetails();
+    this.selectedCat = {};
 
   //---Get user details 
     this.storage.get('user').then((obj) => {
-      console.log(obj);
+      //---console.log(obj);
       this.user = obj
     });
 
-  //---Attempt to create catObject by comparing user.favBreed with breed name from API object
-    this.storage.get('user').then((user) => {
-      if (user) {
-        for (let aCatObject of this.breedslist){
-        if (aCatObject.name == user.favBreed) {
-          this.catObject = aCatObject;
-        }
-        this.catImageURL = this.catObject.image.url;
-      }
-      }
-    });
+  //---Get saved cats array  
+    this.storage.get('savedCats').then((storedCats) => {
+      this.savedCats = JSON.parse(storedCats);
+      //---console.log(this.savedCats);
+  });
   }
  
   //--------------------------------------------------------
@@ -56,37 +56,48 @@ export class FavouritesPage implements OnInit {
   getAPIDetails() {
     this.http.get(this.endpoint).subscribe(
       (response) => {
-        console.log(this);
+        //---console.log(this);
         this.breedslist = response;
-        console.log(this.breedslist);
+        //---console.log(this.breedslist);
       }
     );
+
   }
 
   //--------------------------------------------------------
 
-  //---Toggle favourite icon 
-  async toggleIcon(getIcon: string) {
-
-      if (this.buttonIcon === 'heart-outline') {
-        this.buttonIcon = "heart";
-        const toast = await this.toastController.create({
-          message: 'Added to Favourites',
+  //---Removed from list toast alert 
+  async removedAlert() {
+    const toast = await this.toastController.create({
+          message: 'Removed from Cat-alogue',
           duration: 2000,
           cssClass: 'my-toast',
         });
         toast.present();
-      }
-
-      else if (this.buttonIcon === 'heart') {
-        this.buttonIcon = "heart-outline";
-        const toast = await this.toastController.create({
-          message: 'Removed from Favourites',
-          duration: 2000,
-          cssClass: 'my-toast',
-        });
-        toast.present();
-      }
    }
+
+  //--------------------------------------------------------
+
+  //---Pass selected cat's details to cat-details page
+  onSelect(catObject) {
+    this.selectedCat = catObject;
+
+    let navigationExtras: NavigationExtras = {
+      queryParams: {
+        catObject: JSON.stringify(this.selectedCat)
+      }
+    };
+    //---console.log(navigationExtras);
+    this.router.navigate(['/cat-details'], navigationExtras);
+  }
+
+  //--------------------------------------------------------
+
+  //---Delete cat from list
+  delete(index) {
+    //---console.log(index);
+    this.savedCats.splice(index,1);
+    this.storage.set("savedCats", this.savedCats);
+  }
    
   }
