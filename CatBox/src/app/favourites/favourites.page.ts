@@ -94,10 +94,11 @@ export class FavouritesPage implements OnInit {
   //--------------------------------------------------------
 
   //---Delete cat from list
-  delete(index) {
+  delete(i) {
     //---console.log(index);
-    this.savedCats.splice(index,1);
+    this.savedCats.splice(i,1);
     this.storage.set("savedCats", this.savedCats);
   }
+
    
   }

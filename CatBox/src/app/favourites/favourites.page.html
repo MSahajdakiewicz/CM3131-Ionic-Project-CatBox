@@ -19,7 +19,7 @@
 <!--FAVOURITES-->      
   <ion-content>
     <ion-list *ngIf="catObject">
-    <ion-card *ngFor="let catObject of savedCats" style="margin-top: 20px;">
+    <ion-card *ngFor="let catObject of savedCats; let i=index" style="margin-top: 20px;">
       
     <!--Cat photo-->
       <img src="{{catObject.image.url}}" (click)='onSelect(catObject)'/>
